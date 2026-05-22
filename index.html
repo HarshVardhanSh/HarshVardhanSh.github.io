@@ -1,89 +1,610 @@
+bash -lc cat > /mnt/data/index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name</title>
+  <meta name="description" content="Personal website of Harsh Shrivastava, a machine learning researcher working on causality, sequential decision making, bandits, reinforcement learning, and multimodal machine learning." />
+  <title>Harsh Shrivastava | Machine Learning Researcher</title>
   <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --line: #dfe6ef;
+      --accent: #1f6feb;
+      --accent-dark: #0b4fb3;
+      --soft-accent: #eaf2ff;
+      --shadow: 0 18px 45px rgba(31, 45, 61, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    .tagline {
-      font-size: 20px;
-      color: #555;
-    }
-
-    section {
-      margin-top: 40px;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
 
     a {
-      color: #0969da;
+      color: var(--accent);
       text-decoration: none;
     }
 
     a:hover {
+      color: var(--accent-dark);
       text-decoration: underline;
     }
 
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 249, 252, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 34px;
+      align-items: center;
+      padding: 78px 0 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--soft-accent);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      margin-top: 0;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.7rem);
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
     .button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 16px;
-      background: #0969da;
-      color: white;
-      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: var(--surface);
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(31, 45, 61, 0.06);
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
     }
 
     .button:hover {
       text-decoration: none;
-      background: #0759b8;
+      transform: translateY(-1px);
+    }
+
+    .hero-card, .card, .timeline-item, .publication {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 26px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-card ul {
+      padding-left: 20px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 46px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+    }
+
+    .date {
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.94rem;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+      font-size: 1.18rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+
+    .timeline-item p, .publication p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .publication {
+      padding: 22px;
+    }
+
+    .publication h3 {
+      font-size: 1.07rem;
+      margin-bottom: 8px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--soft-accent);
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--text);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      margin-bottom: 8px;
+    }
+
+    .contact-box p {
+      color: #d8deea;
+      margin: 0;
+    }
+
+    .contact-box .button {
+      color: var(--text);
+      background: #ffffff;
+      border-color: #ffffff;
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 32px 0 46px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .timeline-item, .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid, .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 10px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Harsh Shrivastava</h1>
-    <p class="tagline"> ML Researcher | Msc@MBZUAI | Ex-Data Scientist </p>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#">Harsh Shrivastava</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Hi, I’m Your Name. I’m building my personal website with GitHub Pages.
-      I’m interested in technology, design, and creating useful projects.
-    </p>
-  </section>
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <p class="eyebrow">Machine Learning Researcher</p>
+        <h1>Harsh Shrivastava</h1>
+        <p class="lead">
+          I am a master's student in Machine Learning at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), working on causality-empowered world models, causal inference for sequential decision making, bandits, and reinforcement learning.
+        </p>
+        <p class="lead">
+          My work connects theoretical machine learning with practical decision-making systems, drawing from research experience in causality, audio representation learning, multimodal learning, and large-scale data science.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="mailto:harsh.vardhan.shri@gmail.com">Email me</a>
+          <a class="button" href="https://github.com/HarshVardhanSh/" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/harshsh123/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="button" href="https://scholar.google.com/citations?user=gya545QAAAAJ&hl" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a class="button" href="Harsh_CV_Latest.pdf">Download CV</a>
+        </div>
+      </div>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Project One:</strong> A short description of your project.</li>
-      <li><strong>Project Two:</strong> Another project you want to show.</li>
-      <li><strong>Project Three:</strong> Something you are currently building.</li>
-    </ul>
-  </section>
+      <aside class="hero-card" aria-label="Current research focus">
+        <h2>Current focus</h2>
+        <ul>
+          <li>Finite-sample identification of natural direct effects</li>
+          <li>Precision-oriented evaluation of individual causal effect prediction</li>
+          <li>Causality for sequential decision making</li>
+          <li>Bandits, reinforcement learning, and robust ML systems</li>
+        </ul>
+      </aside>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>
-      Email: your.email@example.com<br />
-      GitHub: <a href="https://github.com/YOURUSERNAME">github.com/YOURUSERNAME</a><br />
-      LinkedIn: <a href="#">Your LinkedIn</a>
-    </p>
+    <section class="container section" id="research">
+      <div class="section-heading">
+        <h2>Research interests</h2>
+        <p>I am interested in principled learning algorithms that support reliable decisions under uncertainty.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Causality-empowered world models</h3>
+          <p>Building models that represent causal structure and support robust reasoning about interventions and outcomes.</p>
+        </article>
+        <article class="card">
+          <h3>Sequential decision making</h3>
+          <p>Studying causal methods for problems where decisions, feedback, and uncertainty evolve over time.</p>
+        </article>
+        <article class="card">
+          <h3>Bandits and reinforcement learning</h3>
+          <p>Developing algorithms and evaluation methods for adaptive learning and decision-making systems.</p>
+        </article>
+      </div>
+    </section>
 
-    <a class="button" href="mailto:your.email@example.com">Contact Me</a>
-  </section>
+    <section class="container section" id="research-experience">
+      <div class="section-heading">
+        <h2>Research experience</h2>
+        <p>Selected academic projects across causality, audio, multimodal learning, retrieval, and medical video analysis.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="date">Aug 2025 - Present</div>
+          <div>
+            <h3>Mohamed bin Zayed University of Artificial Intelligence</h3>
+            <p class="meta">Advisors: Prof. Kun Zhang, Prof. Jin Tian, Prof. Junpei Komiyama</p>
+            <p>
+              Working on finite-sample identification of best natural direct effects and precision-oriented evaluation of individual causal effect prediction under latent heterogeneity.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">Aug 2019 - Mar 2020</div>
+          <div>
+            <h3>National University of Singapore</h3>
+            <p class="meta">Advisors: Prof. Roger Zimmermann, Dr. Yifang Yin</p>
+            <p>
+              Developed label-noise robust audio representation learning methods using graph convolution networks and explored multimodal teacher-student learning for enhanced audio tagging.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">Dec 2018 - Jun 2019</div>
+          <div>
+            <h3>IIIT-Delhi</h3>
+            <p class="meta">Advisor: Prof. Rajiv Ratn Shah</p>
+            <p>
+              Built systems for human-in-the-loop face retrieval, surgical tool detection in cataract surgery videos, and weakly supervised audio tagging with multi-level feature fusion.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="publications">
+      <div class="section-heading">
+        <h2>Publications and manuscripts</h2>
+        <p>Work spanning causal inference, audio tagging, multimodal learning, and scalable retrieval systems.</p>
+      </div>
+
+      <div class="publication-list">
+        <article class="publication">
+          <h3>Finite-Sample Identification of Natural Direct Effects</h3>
+          <p>Harsh Shrivastava, Yuta Kawakami, Junpei Komiyama, Jin Tian. Under review at UAI 2026.</p>
+        </article>
+
+        <article class="publication">
+          <h3>Measuring Precision in Individual Causal Effect Prediction</h3>
+          <p>Yuta Kawakami*, Harsh Shrivastava*, Jin Tian. Under review at AAAI 2027.</p>
+        </article>
+
+        <article class="publication">
+          <h3>Enhanced Audio Tagging via Multi- to Single-Modal Teacher-Student Mutual Learning</h3>
+          <p>Yin, Y., Shrivastava, H., Zhang, Y., Liu, Z., Shah, R. and Zimmermann, R. AAAI 2021.</p>
+        </article>
+
+        <article class="publication">
+          <h3>Multi-task Graph Convolutional Network for Audio Tagging with Noisy Labels</h3>
+          <p>Shrivastava, H., Yin, Y., Shah, R. and Zimmermann, R. ICASSP 2020.</p>
+        </article>
+
+        <article class="publication">
+          <h3>Multi-Level Fusion based Class-aware Attention Model for Weakly Labeled Audio Tagging</h3>
+          <p>Yin, Y., Chiou, M.-J., Zhenguang, Shrivastava, H., Shah, R. and Zimmermann, R. ACM Multimedia 2019.</p>
+        </article>
+
+        <article class="publication">
+          <h3>FaceFetch: An Efficient and Scalable Face Retrieval System That Uses Your Visual Memory</h3>
+          <p>Shrivastava, H., PVNS, R., Aggarwal, K., Ayyar, M., Yin, Y., Shah, R. and Zimmermann, R. IEEE BigMM 2019.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="experience">
+      <div class="section-heading">
+        <h2>Industry experience</h2>
+        <p>Data science experience across logistics, search, ranking, recommendations, marketplaces, and predictive modeling.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="date">Apr 2024 - Jul 2025</div>
+          <div>
+            <h3>Data Scientist II, Ecom Express</h3>
+            <p>
+              Developed sequential prediction models for logistics planning, including shipment routing and delivery-time estimation with large-scale historical movement data.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">2023</div>
+          <div>
+            <h3>Data Scientist, Farfetch</h3>
+            <p>
+              Built contextual recommendation and ranking systems for search and discovery, including cold-start handling and engagement-based optimization using logged user interaction data.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">Aug 2021 - Jun 2023</div>
+          <div>
+            <h3>Data Scientist, Flipkart</h3>
+            <p>
+              Worked on learning-to-rank and multi-objective optimization for large-scale autosuggestion systems. Recipient of the FK Search RnR Award in 2022.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">Sep 2020 - Aug 2021</div>
+          <div>
+            <h3>Data Scientist, CARS24</h3>
+            <p>
+              Developed predictive models for pricing and demand estimation in online marketplaces, covering data processing through model deployment.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="education">
+      <div class="section-heading">
+        <h2>Education</h2>
+        <p>Academic training in machine learning, computer science, and engineering.</p>
+      </div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Master's in Machine Learning</h3>
+          <p>Mohamed bin Zayed University of Artificial Intelligence, Abu Dhabi, UAE. CGPA: 3.63/4. Aug 2025 - Aug 2027.</p>
+        </article>
+        <article class="card">
+          <h3>B.Eng. Computer Science and Engineering</h3>
+          <p>Rustamji Institute of Technology, BSF Academy, Gwalior, India. CGPA: 8.36/10. Aug 2016 - Aug 2020.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="skills">
+      <div class="section-heading">
+        <h2>Skills</h2>
+        <p>Tools and technologies I use for research, experimentation, and production data science.</p>
+      </div>
+      <div class="card">
+        <div class="tag-row" aria-label="Skills list">
+          <span class="tag">Python</span>
+          <span class="tag">PySpark</span>
+          <span class="tag">SQL</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">sklearn</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">HuggingFace</span>
+          <span class="tag">Git</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Azure</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Academic writing</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="contact">
+      <div class="contact-box">
+        <div>
+          <h2>Let's connect</h2>
+          <p>I am happy to discuss research ideas, collaborations, and opportunities related to causal machine learning, sequential decision making, and data science.</p>
+        </div>
+        <a class="button" href="mailto:harsh.vardhan.shri@gmail.com">harsh.vardhan.shri@gmail.com</a>
+      </div>
+      <!-- For privacy, the phone number from the CV is not displayed. Add it here if you want it public. -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Harsh Shrivastava. Built with GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
 </html>
+EOF
+wc -c /mnt/data/index.html
