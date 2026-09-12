@@ -3,67 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <meta
     name="description"
     content="Harsh Shrivastava is an M.Sc. student in Machine Learning at MBZUAI researching causal inference, causal representation learning, causal discovery, and robust AI."
   />
   <meta name="author" content="Harsh Shrivastava" />
-  <meta name="theme-color" content="#174f43" />
+  <meta name="theme-color" content="#0f766e" />
 
   <meta property="og:title" content="Harsh Shrivastava | Academic Homepage" />
   <meta
     property="og:description"
-    content="Research in causal inference, causal representation learning, causal discovery, and robust and generalizable AI."
+    content="Research in causal inference, causal representation learning, causal discovery, structured world models, and robust AI."
   />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/harsh_profile.jpg" />
 
   <title>Harsh Shrivastava | Academic Homepage</title>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Harsh Shrivastava",
-    "email": "mailto:harsh.vardhan.shri@gmail.com",
-    "image": "assets/harsh_profile.jpg",
-    "jobTitle": "M.Sc. Student in Machine Learning",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Mohamed bin Zayed University of Artificial Intelligence"
-    },
-    "sameAs": [
-      "https://scholar.google.com/citations?user=gya545QAAAAJ&hl=en",
-      "https://www.linkedin.com/in/harshsh123/",
-      "https://github.com/HarshVardhanSh/"
-    ],
-    "knowsAbout": [
-      "Causal Inference",
-      "Causal Representation Learning",
-      "Causal Discovery",
-      "Robust Artificial Intelligence",
-      "Generalizable Artificial Intelligence"
-    ]
-  }
-  </script>
-
   <style>
     :root {
-      --background: #f7f8f6;
-      --surface: #ffffff;
-      --surface-soft: #f1f5f2;
-      --text: #18211f;
-      --muted: #5d6965;
-      --accent: #174f43;
-      --accent-hover: #0e3b32;
-      --accent-soft: #e4efeb;
-      --border: #dce3df;
-      --border-dark: #cbd5d0;
-      --max-width: 1080px;
-      --content-width: 760px;
-      --radius: 10px;
-      --shadow: 0 14px 40px rgba(23, 49, 42, 0.07);
+      --bg: #fbfaf7;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #626b7a;
+      --soft: #eef6f4;
+      --soft-2: #f4f0e8;
+      --line: #e6e1d8;
+      --accent: #0f766e;
+      --accent-dark: #0b4f49;
+      --accent-ink: #063f3a;
+      --stage-bg: #f2f3f3;
+      --shadow: 0 24px 70px rgba(17, 24, 39, 0.10);
+      --radius: 28px;
+      --max: 1120px;
     }
 
     * {
@@ -72,22 +44,18 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 92px;
     }
 
     body {
       margin: 0;
-      color: var(--text);
-      background: var(--background);
-      font-family:
-        Inter,
-        ui-sans-serif,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      font-size: 16px;
-      line-height: 1.72;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(15, 118, 110, 0.16), transparent 32rem),
+        radial-gradient(circle at 85% 20%, rgba(244, 240, 232, 0.95), transparent 34rem),
+        var(--bg);
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -97,754 +65,685 @@
 
     a {
       color: var(--accent);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
+      text-decoration: none;
+      transition: color 180ms ease, transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
     a:hover {
-      color: var(--accent-hover);
+      color: var(--accent-dark);
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    p {
-      margin-top: 0;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      color: var(--text);
-    }
-
-    h1,
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 600;
-    }
-
-    h1 {
-      margin-bottom: 12px;
-      font-size: clamp(2.7rem, 7vw, 4.8rem);
-      line-height: 1.02;
-      letter-spacing: -0.045em;
-    }
-
-    h2 {
-      margin-bottom: 24px;
-      font-size: clamp(1.9rem, 4vw, 2.65rem);
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-    }
-
-    h3 {
-      margin-bottom: 7px;
-      font-size: 1.12rem;
-      line-height: 1.4;
-    }
-
-    h4 {
-      margin-bottom: 4px;
-      font-size: 1rem;
-      line-height: 1.45;
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid rgba(15, 118, 110, 0.35);
+      outline-offset: 4px;
+      border-radius: 8px;
     }
 
     .container {
-      width: min(var(--max-width), calc(100% - 40px));
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
     .skip-link {
       position: fixed;
-      top: 8px;
-      left: 8px;
+      top: 10px;
+      left: 10px;
       z-index: 100;
       padding: 10px 14px;
-      border-radius: 6px;
+      border-radius: 10px;
+      background: var(--accent-dark);
       color: #ffffff;
-      background: var(--accent);
-      transform: translateY(-150%);
-      transition: transform 150ms ease;
+      font-weight: 800;
+      transform: translateY(-160%);
     }
 
     .skip-link:focus {
       transform: translateY(0);
     }
 
-    /* Navigation */
-
-    .site-header {
+    .nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(203, 213, 208, 0.85);
-      background: rgba(247, 248, 246, 0.94);
-      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(230, 225, 216, 0.82);
+      background: rgba(251, 250, 247, 0.88);
+      backdrop-filter: blur(16px);
     }
 
-    .navigation {
-      min-height: 68px;
+    .nav-inner {
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 24px;
     }
 
-    .wordmark {
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-decoration: none;
+    .brand {
+      color: var(--ink);
+      font-weight: 850;
+      letter-spacing: -0.035em;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
       white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       justify-content: flex-end;
-      gap: 22px;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 650;
-      text-decoration: none;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
-
-    /* Hero */
 
     .hero {
-      padding: 82px 0 74px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-grid {
       display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.25fr) 0.75fr;
       align-items: center;
-      gap: 58px;
+      gap: 66px;
+      padding: 82px 0 66px;
+      min-height: calc(100vh - 74px);
     }
 
-    .portrait {
-      width: 220px;
-      aspect-ratio: 1 / 1;
-      display: block;
-      object-fit: cover;
-      border: 1px solid var(--border-dark);
-      border-radius: 50%;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .kicker {
-      margin-bottom: 15px;
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.095em;
-      text-transform: uppercase;
-    }
-
-    .role {
-      margin-bottom: 20px;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.3rem);
-      line-height: 1.5;
-    }
-
-    .hero-bio {
-      max-width: 760px;
-      margin-bottom: 26px;
-      color: #35413d;
-      font-size: 1.04rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 11px;
-      margin-bottom: 21px;
-    }
-
-    .button {
-      min-height: 43px;
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 0 16px;
-      border: 1px solid var(--border-dark);
-      border-radius: 6px;
-      color: var(--text);
-      background: var(--surface);
-      font-size: 0.92rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition:
-        border-color 160ms ease,
-        background 160ms ease,
-        color 160ms ease,
-        transform 160ms ease;
-    }
-
-    .button:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .button.primary {
-      border-color: var(--accent);
-      color: #ffffff;
-      background: var(--accent);
-    }
-
-    .button.primary:hover {
-      border-color: var(--accent-hover);
-      color: #ffffff;
-      background: var(--accent-hover);
-    }
-
-    .profile-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 19px;
-      font-size: 0.93rem;
-    }
-
-    .profile-links a {
-      font-weight: 650;
-      text-decoration: none;
-    }
-
-    /* Main layout */
-
-    .page-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 275px;
-      align-items: start;
-      gap: 72px;
-      padding: 70px 0 80px;
-    }
-
-    .main-column {
-      min-width: 0;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 102px;
-    }
-
-    .section {
-      padding: 0 0 62px;
-      margin-bottom: 62px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--accent);
-      font-size: 0.76rem;
-      font-weight: 850;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .section-intro {
-      max-width: var(--content-width);
-      margin-bottom: 27px;
-      color: var(--muted);
-    }
-
-    /* Research interests */
-
-    .interest-list,
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .interest-list li {
-      padding: 8px 12px;
-      border: 1px solid #cbded7;
+      gap: 10px;
+      margin: 0 0 22px;
+      padding: 9px 13px;
       border-radius: 999px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      font-size: 0.9rem;
-      font-weight: 680;
-    }
-
-    /* Research projects */
-
-    .project-list {
-      display: grid;
-      gap: 19px;
-    }
-
-    .project {
-      padding: 24px 25px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--surface);
-    }
-
-    .project-meta {
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.84rem;
-      font-weight: 750;
-    }
-
-    .project h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    .project p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .project-people {
-      margin: 9px 0 11px;
-      color: #3f4d48;
-      font-size: 0.91rem;
-    }
-
-    /* Publications */
-
-    .publication-list {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      counter-reset: publication;
-    }
-
-    .publication {
-      position: relative;
-      padding: 0 0 25px 46px;
-      margin-bottom: 25px;
-      border-bottom: 1px solid var(--border);
-      counter-increment: publication;
-    }
-
-    .publication:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .publication::before {
-      content: counter(publication);
-      position: absolute;
-      top: 1px;
-      left: 0;
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--border-dark);
-      border-radius: 50%;
-      color: var(--accent);
-      background: var(--surface);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .publication-status {
-      display: inline-block;
-      margin-bottom: 7px;
-      color: var(--accent);
-      font-size: 0.79rem;
-      font-weight: 820;
-      letter-spacing: 0.055em;
+      border: 1px solid rgba(15, 118, 110, 0.20);
+      background: rgba(238, 246, 244, 0.88);
+      color: var(--accent-ink);
+      font-size: 0.85rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .publication-title {
-      margin-bottom: 7px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.17rem;
-      font-weight: 600;
-      line-height: 1.45;
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: -0.055em;
     }
 
-    .publication-authors,
-    .publication-venue {
-      margin-bottom: 4px;
+    h1 {
+      max-width: 800px;
+      font-size: clamp(3.4rem, 8vw, 7.4rem);
+    }
+
+    h2 {
+      font-size: clamp(2.15rem, 4.2vw, 3.8rem);
+    }
+
+    h3 {
+      font-size: 1.32rem;
+      letter-spacing: -0.035em;
+    }
+
+    .lede {
+      max-width: 760px;
+      margin: 28px 0 0;
       color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.55;
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
     }
 
-    .publication-authors strong {
-      color: var(--text);
-      font-weight: 750;
+    .identity-line {
+      margin-top: 22px;
+      padding-left: 18px;
+      border-left: 4px solid var(--accent);
+      max-width: 760px;
+      color: var(--accent-ink);
+      font-size: 1.05rem;
+      font-weight: 760;
     }
 
-    .publication-venue {
-      margin-bottom: 0;
-      font-style: italic;
+    .actions,
+    .links-row,
+    .chips,
+    .note-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .additional-publications {
+    .actions {
       margin-top: 34px;
     }
 
-    .additional-publications summary {
-      cursor: pointer;
-      width: fit-content;
-      color: var(--accent);
-      font-weight: 750;
-    }
-
-    .additional-publications summary:hover {
-      color: var(--accent-hover);
-    }
-
-    .additional-publications[open] summary {
-      margin-bottom: 21px;
-    }
-
-    .compact-publications {
-      display: grid;
-      gap: 20px;
-      padding-left: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .compact-publication {
-      padding-left: 17px;
-      border-left: 3px solid var(--accent-soft);
-    }
-
-    .compact-publication h3 {
-      margin-bottom: 5px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.03rem;
-      font-weight: 600;
-    }
-
-    .compact-publication p {
-      margin-bottom: 3px;
+    .links-row {
+      margin-top: 18px;
       color: var(--muted);
-      font-size: 0.89rem;
+      font-size: 0.98rem;
+      font-weight: 700;
     }
 
-    /* Experience */
+    .links-row span {
+      color: #c5beb2;
+    }
 
-    .timeline {
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: 0 10px 28px rgba(17, 24, 39, 0.06);
+      font-weight: 820;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      color: var(--accent-dark);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, 0.10);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .button.primary:hover {
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .photo-zone {
+      justify-self: center;
+      width: min(380px, 100%);
+    }
+
+    .photo-card {
       position: relative;
-      display: grid;
-      gap: 29px;
+      padding: 14px;
+      border-radius: 38px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(230, 225, 216, 0.92);
+      box-shadow: var(--shadow);
     }
 
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 145px minmax(0, 1fr);
-      gap: 25px;
+    .photo-card::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      z-index: -1;
+      border-radius: 48px;
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.20), rgba(255, 255, 255, 0));
     }
 
-    .timeline-date {
-      color: var(--accent);
-      font-size: 0.86rem;
-      font-weight: 750;
-      line-height: 1.55;
+    .profile-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
     }
 
-    .timeline-content {
-      padding-bottom: 26px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .timeline-item:last-child .timeline-content {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .timeline-content h3 {
-      margin-bottom: 3px;
-    }
-
-    .timeline-role {
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 0.91rem;
-      font-weight: 650;
-    }
-
-    .timeline-content p {
-      margin-bottom: 0;
+    .photo-caption {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border: 1px solid rgba(230, 225, 216, 0.92);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.76);
       color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .subsection-heading {
-      margin: 42px 0 26px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.45rem;
-      font-weight: 600;
+    .photo-caption strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
     }
 
-    /* Sidebar */
-
-    .sidebar-card {
-      padding: 23px;
-      margin-bottom: 17px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--surface);
+    section {
+      padding: 66px 0;
     }
 
-    .sidebar-card h2 {
-      margin-bottom: 18px;
-      font-family: inherit;
-      font-size: 0.8rem;
-      font-weight: 850;
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.8fr);
+      align-items: end;
+      gap: 34px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 900;
       letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
-    .sidebar-entry {
-      padding-bottom: 17px;
-      margin-bottom: 17px;
-      border-bottom: 1px solid var(--border);
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .sidebar-entry:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-      border-bottom: 0;
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
-    .sidebar-entry h3 {
-      margin-bottom: 4px;
+    .card,
+    .paper,
+    .focus-card,
+    .note-card {
+      border: 1px solid rgba(230, 225, 216, 0.96);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 14px 38px rgba(17, 24, 39, 0.055);
+    }
+
+    .focus-card {
+      padding: 26px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .focus-card p,
+    .card p,
+    .paper p,
+    .note-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .focus-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .chips {
+      margin-top: 18px;
+    }
+
+    .chip,
+    .note-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 0.88rem;
+      font-weight: 780;
+    }
+
+    .paper {
+      padding: 30px;
+    }
+
+    .paper.featured {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: start;
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(255, 255, 255, 0.86) 42%),
+        var(--panel);
+    }
+
+    .paper.featured::after {
+      content: "causality";
+      position: absolute;
+      right: -10px;
+      bottom: -24px;
+      color: rgba(15, 118, 110, 0.07);
+      font-size: 6rem;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      pointer-events: none;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-dark);
+      color: #ffffff;
+      font-size: 0.84rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .authors {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-top: 10px;
+    }
+
+    .mini-meta {
+      display: block;
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 860;
+      margin-bottom: 9px;
+    }
+
+    .current-stack {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 26px;
+    }
+
+    .writing-section {
+      position: relative;
+    }
+
+    .writing-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(238, 246, 244, 0.45), rgba(251, 250, 247, 0));
+      border-top: 1px solid rgba(230, 225, 216, 0.76);
+      border-bottom: 1px solid rgba(230, 225, 216, 0.76);
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .note-card {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+    }
+
+    .note-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .note-meta span + span::before {
+      content: "·";
+      margin-right: 8px;
+      color: #aaa39a;
+    }
+
+    .note-card h3 {
+      font-size: 1.38rem;
+      line-height: 1.18;
+    }
+
+    .note-card p {
+      flex: 1;
       font-size: 0.96rem;
     }
 
-    .sidebar-entry p {
-      margin-bottom: 3px;
+    .note-tags {
+      gap: 7px;
+      margin-top: 20px;
+    }
+
+    .note-tag {
+      padding: 5px 9px;
+      font-size: 0.78rem;
+    }
+
+    .note-link {
+      width: fit-content;
+      margin-top: 22px;
+      font-weight: 850;
+    }
+
+    .section-cta {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 22px;
+    }
+
+    .empty-notes {
+      grid-column: 1 / -1;
+      padding: 32px;
+      border: 1px dashed rgba(15, 118, 110, 0.34);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.58);
       color: var(--muted);
-      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .empty-notes strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 1.08rem;
+    }
+
+    .backstage {
+      padding: 48px 0 66px;
+    }
+
+    .backstage-panel {
+      border: 1px solid #dedede;
+      border-radius: 30px;
+      background: rgba(242, 243, 243, 0.86);
+      padding: 26px;
+    }
+
+    .backstage .section-head {
+      margin-bottom: 18px;
+    }
+
+    .backstage h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: #2d333b;
+    }
+
+    .backstage p {
+      color: #68717d;
+    }
+
+    .drawer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    details.drawer {
+      border: 1px solid #dedede;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 16px 16px 14px;
+    }
+
+    details.drawer summary {
+      cursor: pointer;
+      color: #333b45;
+      font-weight: 850;
+      list-style: none;
+    }
+
+    details.drawer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.drawer summary::after {
+      content: "+";
+      float: right;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    details.drawer[open] summary::after {
+      content: "−";
+    }
+
+    .compact-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #68717d;
+      font-size: 0.92rem;
       line-height: 1.55;
     }
 
-    .sidebar-entry .date {
-      color: var(--accent);
-      font-weight: 720;
-    }
-
-    .skill-group {
-      margin-bottom: 19px;
-    }
-
-    .skill-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .skill-group h3 {
-      margin-bottom: 9px;
-      color: var(--muted);
-      font-size: 0.81rem;
-      letter-spacing: 0.035em;
-      text-transform: uppercase;
-    }
-
-    .skill-list {
-      gap: 7px;
-    }
-
-    .skill-list li {
-      padding: 5px 8px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      color: #41504b;
-      background: var(--surface-soft);
-      font-size: 0.79rem;
-      font-weight: 620;
-    }
-
-    /* Contact */
-
-    .contact-panel {
-      padding: 35px;
-      border-radius: var(--radius);
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+      padding: 34px;
+      border-radius: 32px;
+      background: #111827;
       color: #ffffff;
-      background: var(--accent);
+      box-shadow: var(--shadow);
     }
 
-    .contact-panel .section-label {
-      color: #b8d8ce;
+    .contact-card h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
     }
 
-    .contact-panel h2 {
-      color: #ffffff;
+    .contact-card p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 730px;
     }
 
-    .contact-panel p {
-      max-width: 650px;
-      margin-bottom: 24px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .contact-panel .button {
-      border-color: #ffffff;
-      color: var(--accent);
-      background: #ffffff;
-    }
-
-    .contact-panel .button:hover {
-      border-color: #ffffff;
-      color: var(--accent-hover);
-      background: #f0f7f4;
-    }
-
-    /* Footer */
-
-    .footer {
-      padding: 28px 0 40px;
-      border-top: 1px solid var(--border);
+    footer {
+      padding: 32px 0 46px;
       color: var(--muted);
-      font-size: 0.87rem;
+      text-align: center;
+      font-size: 0.94rem;
     }
 
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px 24px;
-    }
-
-    .footer a {
-      font-weight: 650;
-      text-decoration: none;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 170px minmax(0, 1fr);
-        gap: 38px;
-      }
-
-      .portrait {
-        width: 170px;
-      }
-
-      .page-layout {
+    @media (max-width: 980px) {
+      .hero {
         grid-template-columns: 1fr;
-        gap: 15px;
+        min-height: auto;
+        padding-top: 54px;
       }
 
-      .sidebar {
-        position: static;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 17px;
+      .photo-zone {
+        justify-self: start;
       }
 
-      .sidebar-card {
-        margin-bottom: 0;
+      .grid-3,
+      .grid-2,
+      .notes-grid,
+      .drawer-grid,
+      .current-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .contact-card,
+      .paper.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .paper.featured::after {
+        display: none;
+      }
+
+      .note-card {
+        min-height: 0;
       }
     }
 
     @media (max-width: 680px) {
       .container {
-        width: min(100% - 28px, var(--max-width));
+        width: min(100% - 26px, var(--max));
       }
 
-      .navigation {
-        min-height: auto;
-        align-items: flex-start;
+      .nav-inner {
         flex-direction: column;
-        gap: 9px;
-        padding: 14px 0;
+        align-items: flex-start;
+        padding: 15px 0;
       }
 
       .nav-links {
         justify-content: flex-start;
-        gap: 8px 16px;
-      }
-
-      .nav-links a {
-        font-size: 0.84rem;
+        gap: 10px 14px;
+        font-size: 0.88rem;
       }
 
       .hero {
-        padding: 48px 0 53px;
+        gap: 40px;
       }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+      h1 {
+        font-size: clamp(3rem, 18vw, 4.7rem);
       }
 
-      .portrait {
-        width: 145px;
+      section {
+        padding: 48px 0;
       }
 
-      .page-layout {
-        padding: 52px 0 60px;
+      .paper,
+      .card,
+      .focus-card,
+      .note-card,
+      .contact-card,
+      .backstage-panel {
+        padding: 22px;
+        border-radius: 22px;
       }
 
-      .section {
-        padding-bottom: 48px;
-        margin-bottom: 48px;
-      }
-
-      .sidebar {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 7px;
-      }
-
-      .timeline-date {
-        font-size: 0.82rem;
-      }
-
-      .publication {
-        padding-left: 40px;
-      }
-
-      .project,
-      .sidebar-card,
-      .contact-panel {
-        padding: 21px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
+      .section-cta {
+        justify-content: flex-start;
       }
     }
 
@@ -861,60 +760,63 @@
         animation-iteration-count: 1 !important;
       }
     }
-
-    @media print {
-      .site-header,
-      .hero-actions,
-      .contact-panel,
-      .footer {
-        display: none;
-      }
-
-      body {
-        color: #000000;
-        background: #ffffff;
-      }
-
-      .hero,
-      .section {
-        border-color: #cccccc;
-      }
-
-      .page-layout {
-        display: block;
-      }
-
-      .sidebar {
-        position: static;
-        margin-top: 30px;
-      }
-    }
   </style>
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <nav class="container navigation" aria-label="Main navigation">
-      <a class="wordmark" href="#top">Harsh Shrivastava</a>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Harsh Shrivastava <span>Academic</span></a>
 
       <div class="nav-links">
         <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
+        <a href="#papers">Papers</a>
+        <a href="#now">Now</a>
+        <a href="blog/">Blog</a>
+        <a href="#backstage">Backstage</a>
         <a href="#contact">Contact</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <main id="main-content">
-    <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div>
+    <header class="container hero" id="top">
+      <div>
+        <p class="eyebrow">M.Sc. in Machine Learning · MBZUAI</p>
+
+        <h1>Causal inference researcher.</h1>
+
+        <p class="lede">
+          I study the foundations of causal inference, causal representation learning and
+          discovery, and robust and generalizable artificial intelligence.
+        </p>
+
+        <p class="identity-line">
+          My current work spans causal mediation, joint counterfactual evaluation, and
+          object-centric structured world models.
+        </p>
+
+        <div class="actions">
+          <a class="button primary" href="mailto:harsh.vardhan.shri@gmail.com">Email me</a>
+          <a class="button" href="assets/Harsh_Shrivastava_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="button" href="#papers">View research</a>
+        </div>
+
+        <div class="links-row" aria-label="Academic and social links">
+          <a href="https://scholar.google.com/citations?user=gya545QAAAAJ&amp;hl=en" target="_blank" rel="noopener me">Google Scholar</a>
+          <span aria-hidden="true">/</span>
+          <a href="https://www.linkedin.com/in/harshsh123/" target="_blank" rel="noopener me">LinkedIn</a>
+          <span aria-hidden="true">/</span>
+          <a href="https://github.com/HarshVardhanSh/" target="_blank" rel="noopener me">GitHub</a>
+        </div>
+      </div>
+
+      <aside class="photo-zone" aria-label="Profile photo and affiliation">
+        <div class="photo-card">
           <img
-            class="portrait"
+            class="profile-photo"
             src="assets/harsh_profile.jpg"
             alt="Portrait of Harsh Shrivastava"
             width="440"
@@ -922,600 +824,329 @@
           />
         </div>
 
+        <div class="photo-caption">
+          <strong>Mohamed bin Zayed University of Artificial Intelligence</strong>
+          Working with Prof. Kun Zhang, Prof. Junpei Komiyama, and Prof. Jin Tian.
+        </div>
+      </aside>
+    </header>
+
+    <section id="research" class="container">
+      <div class="section-head">
         <div>
-          <p class="kicker">Academic homepage</p>
+          <span class="label">Research identity</span>
+          <h2>Learning systems that reason about causes.</h2>
+        </div>
 
-          <h1>Harsh Shrivastava</h1>
+        <p>
+          I am interested in methods that expose causal structure and remain reliable under
+          interventions, partial information, distribution shifts, and changing environments.
+        </p>
+      </div>
 
-          <p class="role">
-            M.Sc. Student in Machine Learning at the
-            <strong>Mohamed bin Zayed University of Artificial Intelligence</strong>
-          </p>
-
-          <p class="hero-bio">
-            I conduct research on the foundations of causal inference,
-            causal representation learning and discovery, and robust and
-            generalizable artificial intelligence. My current work includes
-            causal mediation, joint counterfactual evaluation, and structured
-            world models.
-          </p>
-
-          <div class="hero-actions">
-            <a
-              class="button primary"
-              href="mailto:harsh.vardhan.shri@gmail.com"
-            >
-              Email
-            </a>
-
-            <a
-              class="button"
-              href="assets/Harsh_Shrivastava_CV.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Curriculum Vitae
-            </a>
-
-            <a
-              class="button"
-              href="https://scholar.google.com/citations?user=gya545QAAAAJ&amp;hl=en"
-              target="_blank"
-              rel="noopener me"
-            >
-              Google Scholar
-            </a>
+      <div class="grid-3">
+        <article class="focus-card">
+          <div>
+            <div class="focus-number">1</div>
+            <h3>Causal mediation and adaptive experiments</h3>
+            <p>
+              I study path-specific causal effects and adaptive treatment allocation, including
+              fixed-confidence identification of interventions that maximize natural direct outcomes.
+            </p>
           </div>
 
-          <div class="profile-links" aria-label="Professional profiles">
-            <a
-              href="https://www.linkedin.com/in/harshsh123/"
-              target="_blank"
-              rel="noopener me"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="https://github.com/HarshVardhanSh/"
-              target="_blank"
-              rel="noopener me"
-            >
-              GitHub
-            </a>
-
-            <a href="#contact">Contact</a>
+          <div class="chips">
+            <span class="chip">Mediation</span>
+            <span class="chip">Natural direct effects</span>
+            <span class="chip">Best-arm identification</span>
           </div>
+        </article>
+
+        <article class="focus-card">
+          <div>
+            <div class="focus-number">2</div>
+            <h3>Joint counterfactuals from partial dependence</h3>
+            <p>
+              I work on evaluating otherwise unidentified joint counterfactual functionals when
+              only marginal distributions and edgewise correlations are available.
+            </p>
+          </div>
+
+          <div class="chips">
+            <span class="chip">Counterfactuals</span>
+            <span class="chip">Partial identification</span>
+            <span class="chip">Dependence constraints</span>
+          </div>
+        </article>
+
+        <article class="focus-card">
+          <div>
+            <div class="focus-number">3</div>
+            <h3>Object-Centric Sparse Transition Representations for World Models</h3>
+            <p>
+              I develop object-centric latent representations with sparse transition dependencies
+              for modular and generalizable models of structured dynamics.
+            </p>
+          </div>
+
+          <div class="chips">
+            <span class="chip">Causal Representation Learning</span>
+            <span class="chip">Causal Discovery</span>
+            <span class="chip">World models</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="papers" class="container">
+      <div class="section-head">
+        <div>
+          <span class="label">Selected work</span>
+          <h2>Recent papers.</h2>
+        </div>
+
+        <p>
+          These papers represent my current work across causal inference, counterfactual
+          reasoning, and representation learning for long-form video understanding.
+        </p>
+      </div>
+
+      <article class="paper featured">
+        <div>
+          <span class="mini-meta">UAI 2026 · Accepted · First author</span>
+          <h3>Fixed-Confidence Best-Arm Identification for Causal Mediation Analysis</h3>
+          <p class="authors">
+            <strong>Harsh Shrivastava</strong>, Yuta Kawakami, Junpei Komiyama, and Jin Tian.
+          </p>
+          <p>
+            We formulate maximization of the expected natural direct potential outcome as a
+            fixed-confidence best-arm identification problem, establish identification from
+            interventional distributions, derive instance-dependent sample-complexity lower
+            bounds, and develop an asymptotically optimal Track-and-Stop algorithm.
+          </p>
+        </div>
+
+        <span class="status">Causal mediation</span>
+      </article>
+
+      <div class="grid-2" style="margin-top: 18px;">
+        <article class="paper">
+          <span class="mini-meta">Under review · Submitted to AAAI 2027</span>
+          <h3>Evaluating Joint Counterfactual Functionals from Marginal Distributions and Edgewise Correlations</h3>
+          <p class="authors">
+            Naoya Hashimoto, <strong>Harsh Shrivastava</strong>, Yuta Kawakami, and Jin Tian.
+          </p>
+          <p>
+            We study how partial dependence information can constrain joint counterfactual
+            quantities when the complete joint counterfactual distribution is unavailable.
+          </p>
+        </article>
+
+        <article class="paper">
+          <span class="mini-meta">ECCV 2026 · To appear</span>
+          <h3>MoVA: Learning Asymmetric Dual Projections for Modular Long Video-Text Alignment</h3>
+          <p class="authors">
+            Peiyuan Zhu, Shaoan Xie, Zijian Li, Yifan Shen, Namrata Deka,
+            <strong>Harsh Shrivastava</strong>, Guangyi Chen, and Kun Zhang.
+          </p>
+          <p>
+            This work develops asymmetric dual projections for modular alignment between
+            long-form video representations and text.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="now" class="container">
+      <div class="section-head">
+        <div>
+          <span class="label">Current home</span>
+          <h2>Where I am now.</h2>
+        </div>
+
+        <p>
+          I am pursuing an M.Sc. in Machine Learning at MBZUAI, with research spanning
+          causal inference, structured representations, and robust AI.
+        </p>
+      </div>
+
+      <div class="current-stack">
+        <article class="card">
+          <span class="mini-meta">Aug 2025 – Present</span>
+          <h3>Mohamed bin Zayed University of Artificial Intelligence</h3>
+          <p>
+            M.Sc. in Machine Learning, Abu Dhabi, UAE. Current CGPA: 3.61/4.00.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="mini-meta">Research interests</span>
+          <h3>Foundations, representations, and generalization</h3>
+          <div class="chips">
+            <span class="chip">Foundations of Causal Inference</span>
+            <span class="chip">Causal Representation Learning</span>
+            <span class="chip">Causal Discovery</span>
+            <span class="chip">Robust and Generalizable AI</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="writing" class="writing-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">Writing</span>
+            <h2>Latest research notes.</h2>
+          </div>
+
+          <p>
+            I write long-form notes in Overleaf and publish the final versions here as PDFs,
+            with short abstracts and topic tags for quick browsing.
+          </p>
+        </div>
+
+        <div id="latest-posts" class="notes-grid" aria-live="polite"></div>
+
+        <div class="section-cta">
+          <a class="button" href="blog/">Browse all research notes</a>
         </div>
       </div>
     </section>
 
-    <div class="container page-layout">
-      <div class="main-column">
-
-        <!-- Research -->
-
-        <section class="section" id="research">
-          <span class="section-label">Research</span>
-          <h2>Research interests</h2>
-
-          <p class="section-intro">
-            My research focuses on understanding causal structure and
-            developing learning systems that remain reliable under
-            interventions, distribution shifts, and changes in their
-            environments.
-          </p>
-
-          <ul class="interest-list">
-            <li>Foundations of Causal Inference</li>
-            <li>Causal Representation Learning</li>
-            <li>Causal Discovery</li>
-            <li>Robust and Generalizable AI</li>
-          </ul>
-
-          <h3 class="subsection-heading">Current research at MBZUAI</h3>
-
-          <div class="project-list">
-            <article class="project">
-              <p class="project-meta">Structured world models</p>
-
-              <h3>
-                Object-Centric Sparse Transition Representations for World Models
-              </h3>
-
-              <p class="project-people">
-                <strong>Advisor:</strong> Prof. Kun Zhang
-              </p>
-
-              <p>
-                Developing object-centric latent representations with sparse
-                transition dependencies for structured world models, with the
-                goal of improving the modularity and generalization of learned
-                dynamics.
-              </p>
-            </article>
-
-            <article class="project">
-              <p class="project-meta">Causal mediation and adaptive allocation</p>
-
-              <h3>
-                Fixed-Confidence Best-Arm Identification for Causal Mediation
-                Analysis
-              </h3>
-
-              <p class="project-people">
-                <strong>Advisors:</strong> Prof. Jin Tian and Prof. Junpei Komiyama
-                <br />
-                <strong>Mentor:</strong> Dr. Yuta Kawakami
-              </p>
-
-              <p>
-                Formulated maximization of the expected natural direct potential
-                outcome as a fixed-confidence best-arm identification problem.
-                Established identification from interventional distributions,
-                derived instance-dependent sample-complexity lower bounds, and
-                developed an asymptotically optimal Track-and-Stop algorithm for
-                adaptive treatment allocation.
-              </p>
-            </article>
-
-            <article class="project">
-              <p class="project-meta">Joint counterfactual evaluation</p>
-
-              <h3>
-                Evaluating Joint Counterfactual Functionals from Marginal
-                Distributions and Edgewise Correlations
-              </h3>
-
-              <p class="project-people">
-                <strong>Advisor:</strong> Prof. Jin Tian
-                <br />
-                <strong>Collaborators:</strong> Naoya Hashimoto and
-                Dr. Yuta Kawakami
-              </p>
-
-              <p>
-                Studying how joint counterfactual functionals can be evaluated
-                when only marginal distributions and edgewise correlations are
-                available, without access to the full joint counterfactual
-                distribution. The work uses partial dependence information to
-                constrain otherwise unidentified counterfactual quantities.
-              </p>
-            </article>
+    <section id="backstage" class="backstage">
+      <div class="container backstage-panel">
+        <div class="section-head">
+          <div>
+            <span class="label">Backstage</span>
+            <h2>Earlier work, kept compact.</h2>
           </div>
-        </section>
 
-        <!-- Publications -->
+          <p>
+            These research and industry experiences shaped my approach to machine learning,
+            but the current focus of this website is my academic work in causality.
+          </p>
+        </div>
 
-        <section class="section" id="publications">
-          <span class="section-label">Scholarship</span>
-          <h2>Selected publications</h2>
-
-          <ol class="publication-list">
-            <li class="publication">
-              <span class="publication-status">UAI 2026</span>
-
-              <h3 class="publication-title">
-                Fixed-Confidence Best-Arm Identification for Causal Mediation
-                Analysis
-              </h3>
-
-              <p class="publication-authors">
-                <strong>Harsh Shrivastava</strong>, Yuta Kawakami,
-                Junpei Komiyama, and Jin Tian
-              </p>
-
-              <p class="publication-venue">
-                Conference on Uncertainty in Artificial Intelligence, 2026.
-              </p>
-            </li>
-
-            <li class="publication">
-              <span class="publication-status">
-                Under review · Submitted to AAAI 2027
-              </span>
-
-              <h3 class="publication-title">
-                Evaluating Joint Counterfactual Functionals from Marginal
-                Distributions and Edgewise Correlations
-              </h3>
-
-              <p class="publication-authors">
-                Naoya Hashimoto, <strong>Harsh Shrivastava</strong>,
-                Yuta Kawakami, and Jin Tian
-              </p>
-            </li>
-
-            <li class="publication">
-              <span class="publication-status">ECCV 2026 · To appear</span>
-
-              <h3 class="publication-title">
-                MoVA: Learning Asymmetric Dual Projections for Modular Long
-                Video-Text Alignment
-              </h3>
-
-              <p class="publication-authors">
-                Peiyuan Zhu, Shaoan Xie, Zijian Li, Yifan Shen, Namrata Deka,
-                <strong>Harsh Shrivastava</strong>, Guangyi Chen, and Kun Zhang
-              </p>
-
-              <p class="publication-venue">
-                European Conference on Computer Vision, 2026.
-              </p>
-            </li>
-          </ol>
-
-          <details class="additional-publications">
-            <summary>Show additional publications</summary>
-
-            <ul class="compact-publications">
-              <li class="compact-publication">
-                <h3>
-                  Enhanced Audio Tagging via Multi- to Single-Modal
-                  Teacher-Student Mutual Learning
-                </h3>
-
-                <p>
-                  Y. Yin, <strong>Harsh Shrivastava</strong>, Y. Zhang,
-                  Z. Liu, R. R. Shah, and R. Zimmermann
-                </p>
-
-                <p>AAAI Conference on Artificial Intelligence, 2021.</p>
-              </li>
-
-              <li class="compact-publication">
-                <h3>
-                  Multi-task Graph Convolutional Network for Audio Tagging with
-                  Noisy Labels
-                </h3>
-
-                <p>
-                  <strong>Harsh Shrivastava</strong>, Y. Yin, R. R. Shah,
-                  and R. Zimmermann
-                </p>
-
-                <p>
-                  IEEE International Conference on Acoustics, Speech and Signal
-                  Processing, 2020.
-                </p>
-              </li>
-
-              <li class="compact-publication">
-                <h3>
-                  FaceFetch: An Efficient and Scalable Face Retrieval System
-                  That Uses Your Visual Memory
-                </h3>
-
-                <p>
-                  <strong>Harsh Shrivastava</strong>, R. PVNS, K. Aggarwal,
-                  M. Ayyar, Y. Yin, R. R. Shah, and R. Zimmermann
-                </p>
-
-                <p>
-                  IEEE International Conference on Multimedia Big Data, 2019.
-                </p>
-              </li>
-
-              <li class="compact-publication">
-                <h3>
-                  Multi-Level Fusion Based Class-Aware Attention Model for
-                  Weakly Labeled Audio Tagging
-                </h3>
-
-                <p>
-                  Y. Yin, M.-J. Chiou, W. Zhenguang,
-                  <strong>Harsh Shrivastava</strong>, R. R. Shah, and
-                  R. Zimmermann
-                </p>
-
-                <p>
-                  ACM International Conference on Multimedia, 2019.
-                </p>
-              </li>
+        <div class="drawer-grid">
+          <details class="drawer">
+            <summary>Prior audio and multimodal ML</summary>
+            <ul class="compact-list">
+              <li>AAAI 2021: audio tagging through multi- to single-modal teacher-student mutual learning.</li>
+              <li>ICASSP 2020: multi-task graph convolutional networks for noisy-label audio tagging.</li>
+              <li>ACM Multimedia 2019: weakly labeled audio tagging with multi-level feature fusion.</li>
+              <li>IEEE BigMM 2019: FaceFetch, a human-in-the-loop face-retrieval system.</li>
             </ul>
           </details>
-        </section>
 
-        <!-- Experience -->
+          <details class="drawer">
+            <summary>Industry data science</summary>
+            <ul class="compact-list">
+              <li>Ecom Express: sequential prediction for logistics planning and delivery-time estimation.</li>
+              <li>Farfetch: contextual recommendation and ranking for product search and discovery.</li>
+              <li>Flipkart: learning-to-rank and multi-objective autosuggestion systems.</li>
+              <li>CARS24: pricing and demand prediction for an online automotive marketplace.</li>
+            </ul>
+          </details>
 
-        <section class="section" id="experience">
-          <span class="section-label">Background</span>
-          <h2>Research experience</h2>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-date">Aug 2019 – Mar 2020</div>
-
-              <div class="timeline-content">
-                <h3>National University of Singapore</h3>
-
-                <p class="timeline-role">
-                  Research Assistant · Singapore
-                </p>
-
-                <p class="timeline-role">
-                  Advisors: Prof. Roger Zimmermann and Dr. Yifang Yin
-                </p>
-
-                <p>
-                  Developed label-noise-robust audio representations using
-                  multi-task graph convolutional networks and a multimodal
-                  teacher-student framework for audio tagging. This research
-                  led to publications at ICASSP 2020 and AAAI 2021.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-date">Dec 2018 – Jun 2019</div>
-
-              <div class="timeline-content">
-                <h3>
-                  Indraprastha Institute of Information Technology Delhi
-                </h3>
-
-                <p class="timeline-role">
-                  Research Intern · India
-                </p>
-
-                <p class="timeline-role">
-                  Advisor: Prof. Rajiv Ratn Shah
-                </p>
-
-                <p>
-                  Developed a human-in-the-loop face-retrieval system and a
-                  multi-level feature-fusion model for weakly supervised audio
-                  tagging. This work led to publications at IEEE BigMM 2019 and
-                  ACM Multimedia 2019.
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <h3 class="subsection-heading">Industry experience</h3>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-date">Apr 2024 – Jul 2025</div>
-
-              <div class="timeline-content">
-                <h3>Ecom Express</h3>
-
-                <p class="timeline-role">
-                  Data Scientist II · India
-                </p>
-
-                <p>
-                  Developed sequential prediction models from large-scale
-                  shipment trajectories for logistics planning, routing, and
-                  delivery-time estimation.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-date">Jul 2023 – Mar 2024</div>
-
-              <div class="timeline-content">
-                <h3>Farfetch</h3>
-
-                <p class="timeline-role">
-                  Data Scientist · India
-                </p>
-
-                <p>
-                  Built contextual recommendation and ranking systems for
-                  product search and discovery, addressing cold-start settings
-                  and learning from logged user interactions.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-date">Aug 2021 – Jun 2023</div>
-
-              <div class="timeline-content">
-                <h3>Flipkart</h3>
-
-                <p class="timeline-role">
-                  Data Scientist · India
-                </p>
-
-                <p>
-                  Developed learning-to-rank and multi-objective optimization
-                  methods for large-scale autosuggestion systems under partial
-                  user feedback. Received the FK Search RnR Award in 2022.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-date">Sep 2020 – Aug 2021</div>
-
-              <div class="timeline-content">
-                <h3>CARS24</h3>
-
-                <p class="timeline-role">
-                  Data Scientist · India
-                </p>
-
-                <p>
-                  Developed and deployed pricing and demand-prediction models
-                  for an online automotive marketplace.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Contact -->
-
-        <section id="contact">
-          <div class="contact-panel">
-            <span class="section-label">Contact</span>
-            <h2>Research and collaboration</h2>
-
-            <p>
-              I am open to conversations about causal inference, causal
-              representation learning, causal discovery, structured world
-              models, and related research collaborations.
-            </p>
-
-            <a
-              class="button"
-              href="mailto:harsh.vardhan.shri@gmail.com"
-            >
-              harsh.vardhan.shri@gmail.com
-            </a>
-          </div>
-        </section>
+          <details class="drawer">
+            <summary>Technical toolkit</summary>
+            <ul class="compact-list">
+              <li>Programming: Python, SQL, and PySpark.</li>
+              <li>ML: PyTorch, TensorFlow, Hugging Face Transformers, and scikit-learn.</li>
+              <li>Scientific computing: NumPy and Pandas.</li>
+              <li>Tools and cloud: Git, Docker, GCP, AWS, and Azure.</li>
+            </ul>
+          </details>
+        </div>
       </div>
+    </section>
 
-      <!-- Sidebar -->
+    <section id="contact" class="container">
+      <div class="contact-card">
+        <div>
+          <span class="label" style="color: #8be0d8;">Contact</span>
+          <h2>Let’s talk research.</h2>
+          <p>
+            I am happy to discuss causal inference, causal representation learning, causal
+            discovery, structured world models, and related research collaborations.
+          </p>
+        </div>
 
-      <aside class="sidebar" aria-label="Academic information">
-        <section class="sidebar-card" id="education">
-          <h2>Education</h2>
-
-          <article class="sidebar-entry">
-            <h3>
-              Mohamed bin Zayed University of Artificial Intelligence
-            </h3>
-
-            <p>M.Sc. in Machine Learning</p>
-            <p class="date">Aug 2025 – Present</p>
-            <p>CGPA: 3.61 / 4.00</p>
-            <p>Abu Dhabi, UAE</p>
-          </article>
-
-          <article class="sidebar-entry">
-            <h3>Rustamji Institute of Technology</h3>
-
-            <p>B.Eng. in Computer Science and Engineering</p>
-            <p class="date">Aug 2016 – Aug 2020</p>
-            <p>CGPA: 8.36 / 10</p>
-            <p>India</p>
-          </article>
-        </section>
-
-        <section class="sidebar-card">
-          <h2>Technical skills</h2>
-
-          <div class="skill-group">
-            <h3>Programming</h3>
-
-            <ul class="skill-list">
-              <li>Python</li>
-              <li>SQL</li>
-              <li>PySpark</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>ML and scientific computing</h3>
-
-            <ul class="skill-list">
-              <li>PyTorch</li>
-              <li>TensorFlow</li>
-              <li>Hugging Face</li>
-              <li>scikit-learn</li>
-              <li>NumPy</li>
-              <li>Pandas</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Tools and cloud</h3>
-
-            <ul class="skill-list">
-              <li>Git</li>
-              <li>Docker</li>
-              <li>GCP</li>
-              <li>AWS</li>
-              <li>Azure</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="sidebar-card">
-          <h2>Links</h2>
-
-          <article class="sidebar-entry">
-            <h3>
-              <a
-                href="https://scholar.google.com/citations?user=gya545QAAAAJ&amp;hl=en"
-                target="_blank"
-                rel="noopener me"
-              >
-                Google Scholar
-              </a>
-            </h3>
-
-            <p>Publications and citations</p>
-          </article>
-
-          <article class="sidebar-entry">
-            <h3>
-              <a
-                href="https://github.com/HarshVardhanSh/"
-                target="_blank"
-                rel="noopener me"
-              >
-                GitHub
-              </a>
-            </h3>
-
-            <p>Code and research projects</p>
-          </article>
-
-          <article class="sidebar-entry">
-            <h3>
-              <a
-                href="https://www.linkedin.com/in/harshsh123/"
-                target="_blank"
-                rel="noopener me"
-              >
-                LinkedIn
-              </a>
-            </h3>
-
-            <p>Professional profile</p>
-          </article>
-
-          <article class="sidebar-entry">
-            <h3>
-              <a
-                href="assets/Harsh_Shrivastava_CV.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                Curriculum Vitae
-              </a>
-            </h3>
-
-            <p>Download the current PDF</p>
-          </article>
-        </section>
-      </aside>
-    </div>
+        <a class="button primary" href="mailto:harsh.vardhan.shri@gmail.com">harsh.vardhan.shri@gmail.com</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>
-        &copy; <span id="year"></span> Harsh Shrivastava
-      </span>
-
-      <span>
-        Academic homepage ·
-        <a href="#top">Back to top</a>
-      </span>
+  <footer>
+    <div class="container">
+      <span>&copy; <span id="year"></span> Harsh Shrivastava. Built for GitHub Pages.</span>
     </div>
   </footer>
 
+  <script src="blog/posts.js"></script>
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const publishedPosts = (window.BLOG_POSTS || [])
+      .filter((post) => post.published === true)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 3);
+
+    const latestPosts = document.getElementById("latest-posts");
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>'"]/g, (character) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#039;",
+        '"': "&quot;"
+      })[character]);
+    }
+
+    function formatPostDate(date) {
+      return new Intl.DateTimeFormat("en", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }).format(new Date(`${date}T00:00:00`));
+    }
+
+    if (publishedPosts.length === 0) {
+      latestPosts.innerHTML = `
+        <div class="empty-notes">
+          <strong>Research notes are coming soon.</strong>
+          The first Overleaf-written PDF will appear here after it is published.
+        </div>
+      `;
+    } else {
+      latestPosts.innerHTML = publishedPosts.map((post) => {
+        const tags = post.tags
+          .map((tag) => `<span class="note-tag">${escapeHTML(tag)}</span>`)
+          .join("");
+
+        return `
+          <article class="note-card">
+            <div class="note-meta">
+              <time datetime="${escapeHTML(post.date)}">${escapeHTML(formatPostDate(post.date))}</time>
+              <span>${escapeHTML(post.readingMinutes)} min read</span>
+            </div>
+            <h3>${escapeHTML(post.title)}</h3>
+            <p>${escapeHTML(post.summary)}</p>
+            <div class="note-tags">${tags}</div>
+            <a
+              class="note-link"
+              href="blog/${escapeHTML(post.pdf)}"
+              target="_blank"
+              rel="noopener"
+            >
+              Read PDF →
+            </a>
+          </article>
+        `;
+      }).join("");
+    }
   </script>
 </body>
 </html>
