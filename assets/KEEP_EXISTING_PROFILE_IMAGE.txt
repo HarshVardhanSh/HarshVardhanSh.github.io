@@ -1,0 +1,4 @@
+Keep your existing profile image at:
+assets/harsh_profile.jpg
+
+The update bundle does not replace that image.
